@@ -1,0 +1,152 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+@import url('https://fonts.googleapis.com/css?family=Girassol&display=swap');
+:root{
+    font-family: 'Girassol', cursive;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin: 20px;
+    .card{
+        position: relative;
+        height: 250px;
+        background: #fff;
+        display: flex;
+        width: 45%;
+        margin: 30px 0;
+        .imgBox{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: .5s;
+            &::before{
+                content: attr(data-text);
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                text-align: center;
+                color: rgba(255,255,255,0.5);
+                font-weight: 700;
+                font-size: 3em;
+               
+            }
+            img{
+                max-width: 100px;
+                transition: .5s;
+            }
+        }
+        &:hover {
+            .imgBox{
+                width: 150px;
+                height: 150px;
+                left: -75px;
+                top: calc(50% - 75px);
+                transition: .5s; 
+                background: #ff0057;
+            }
+            img{
+               max-width: 75px;
+
+            }
+        }
+        .content{
+            position: absolute;
+            right: 0px;
+            width: calc(100% - 75px);
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            h3{
+                margin-bottom: 5px;
+                font-size: 24px;
+            }
+            a{
+                display: inline-block;
+                margin-top: 10px;
+                padding: 5px 10px;
+                background: #333;
+                color: #fff;
+                text-decoration: none;
+            }
+
+;        }
+    }
+}
+
+@media (max-width: 992px) {
+    .container{
+        width: 100%;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .card{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 768px ) {
+    .container {
+        .card{
+            max-width: 300px;
+            flex-direction: column;
+            height: auto;
+            .imgBox{
+                position: relative;
+            }
+            .content{
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .container .card .imgBox, 
+    .container .card:hover .imgBox{
+        width: 100%;
+        height: 200px;
+        left: 0px;
+    }
+    .container .card .imgBox img, 
+    .container .card:hover .imgBox img{
+        max-width: 100px;
+        
+    }
+} 
+
+.project{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 8px 12px;
+    background: #335;
+    color: cyan;
+    text-shadow: 0px 0px 1px white;
+    z-index: 333333333333;
+}
